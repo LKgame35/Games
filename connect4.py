@@ -1,5 +1,6 @@
-beigas=0
+import os
 
+beigas=0
 rinda6=[".", ".",".",".",".",".",".",]
 rinda5=[".", ".",".",".",".",".",".",]
 rinda4=[".", ".",".",".",".",".",".",]
@@ -18,10 +19,8 @@ for big in range(42):
     if beigas==1:
         break
 
-    if int(big)%2==0:
-        speletajs="#"
-    else: 
-        speletajs="@"
+    if int(big)%2==0:speletajs="#"
+    else: speletajs="@"
 
     gajiens=int(input(f"Izvēlieties lauciņu spēlētājs {speletajs}.  "))
 
@@ -65,5 +64,6 @@ for big in range(42):
                     c4=c4+1
                 if c4==4: 
                     beigas=1
+    os.system('cls')
 
 print(f"Uzvarēja spēlētājs {speletajs}  ")
