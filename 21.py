@@ -157,7 +157,7 @@ while True:
                         split_summa=split_summa+vel[zzz-i]-11
                 t=f"Split:({split_summa})"
                 zzz=zzz+1
-            if n==0 and aa==aa:
+            if n==0 and aa==aaa:
                 if nauda-likme>=0:
                     nauda=nauda-likme
                     likme=likme*2
