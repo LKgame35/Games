@@ -52,18 +52,16 @@ def plus_stunda():
     minutes=0
 
 
-def increment_variable():
+def skaits():
     global stundas
     global sekundes
     global minutes
 
     while True:
-        if sekundes==59:
-            plus_minute()
-        else:    
-            sekundes += 1
-        if minutes==59:
-            plus_stunda()
+        if sekundes==59:plus_minute()
+        else:sekundes += 1
+        if minutes==60:plus_stunda()
+        if stundas==24:stundas=0
 
         if stundas<10:st0="0"
         else:st0=""
@@ -71,6 +69,7 @@ def increment_variable():
         else:mi0=""
         if sekundes<10:se0="0"
         else:se0=""
+        
         
         a = tk.Label(root, text=f'{st0}{stundas}:{mi0}{minutes}:{se0}{sekundes}',font=('calibri', 25), fg="green")
         a.place(x=140, y=300)
@@ -101,10 +100,11 @@ def iestatit():
     sekundes1 = int(sekundes_str)-1
 
     if stundas1>23 or minutes1>59 or sekundes1>59:
-        eror_teksts="Neiespējams laiks ievadīts"
+        eror_teksts="Neiespējams laiks ievadīts! "
     else:
         n=Pulkstenis(stundas1,minutes1,sekundes1)
         n.iestatija(stundas1,minutes1,sekundes1)
+
         stundas=stundas1
         minutes=minutes1
         sekundes=sekundes1
@@ -128,7 +128,7 @@ def pievienot():
     sekundes1 = int(sekundes_str)
 
     if stundas+stundas1>23 or minutes1+minutes>59 or sekundes1+sekundes>59:
-        eror_teksts="Neiespējams laiks ievadīts"
+        eror_teksts="Neiespējams laiks ievadīts! "
     else:
         stundas+=stundas1
         minutes+=minutes1
@@ -136,7 +136,7 @@ def pievienot():
 
 
 
-increment_thread = threading.Thread(target=increment_variable)
+increment_thread = threading.Thread(target=skaits)
 increment_thread.start()
 
 
