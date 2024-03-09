@@ -64,8 +64,15 @@ def increment_variable():
             sekundes += 1
         if minutes==59:
             plus_stunda()
+
+        if stundas<10:st0="0"
+        else:st0=""
+        if minutes<10:mi0="0"
+        else:mi0=""
+        if sekundes<10:se0="0"
+        else:se0=""
         
-        a = tk.Label(root, text=f'{stundas}:{minutes}:{sekundes}',font=('calibri', 25), fg="green")
+        a = tk.Label(root, text=f'{st0}{stundas}:{mi0}{minutes}:{se0}{sekundes}',font=('calibri', 25), fg="green")
         a.place(x=140, y=300)
 
         l_virsraksts = tk.Label(root, text=f'{eror_teksts}', font=(25), fg="red")
@@ -81,9 +88,17 @@ def iestatit():
     global minutes
     global eror_teksts
 
-    stundas1 = int(e_skaitlis1.get())
-    minutes1 = int(e_skaitlis2.get())
-    sekundes1 = int(e_skaitlis3.get())-1
+    stundas_str = str(e_skaitlis1.get())
+    minutes_str = str(e_skaitlis2.get())
+    sekundes_str = str(e_skaitlis3.get())
+    if stundas_str=="":stundas_str="0"
+    if minutes_str=="":minutes_str="0"
+    if sekundes_str=="":sekundes_str="0"
+
+
+    stundas1 = int(stundas_str)
+    minutes1 = int(minutes_str)
+    sekundes1 = int(sekundes_str)-1
 
     if stundas1>23 or minutes1>59 or sekundes1>59:
         eror_teksts="Neiespējams laiks ievadīts"
@@ -101,9 +116,16 @@ def pievienot():
     global minutes
     global eror_teksts
 
-    stundas1 = int(e_skaitlis1.get())
-    minutes1 = int(e_skaitlis2.get())
-    sekundes1 = int(e_skaitlis3.get())
+    stundas_str = str(e_skaitlis1.get())
+    minutes_str = str(e_skaitlis2.get())
+    sekundes_str = str(e_skaitlis3.get())
+    if stundas_str=="":stundas_str="0"
+    if minutes_str=="":minutes_str="0"
+    if sekundes_str=="":sekundes_str="0"
+
+    stundas1 = int(stundas_str)
+    minutes1 = int(minutes_str)
+    sekundes1 = int(sekundes_str)
 
     if stundas+stundas1>23 or minutes1+minutes>59 or sekundes1+sekundes>59:
         eror_teksts="Neiespējams laiks ievadīts"
