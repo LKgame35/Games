@@ -34,7 +34,6 @@ class Pulkstenis:
                     ''')
 
     def iestatija(self, stundas2, minutes2, sekundes2):
-
         kursors.execute(f'''INSERT INTO laiks2 (stundas2, minutes2, sekundes2)
             VALUES("{stundas2}", "{minutes2}", "{sekundes2}")
             ''')
@@ -173,3 +172,5 @@ jaunais.place(x=140, y=280)
 
 
 root.mainloop()
+savienojums.commit()
+savienojums.close()
